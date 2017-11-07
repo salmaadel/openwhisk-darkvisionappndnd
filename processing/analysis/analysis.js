@@ -242,7 +242,7 @@ function analyzeImage(args, fileName, analyzeCallback) {
           method: 'POST',
           url: 'https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify' + // eslint-disable-line
             '?api_key=e1994a9bc6583ad86928c17da81d449b42025ade'+
-            '&version=2016-05-20&classifier_ids=media_416609574',
+            '&version=2016-05-20&classifier_ids=media_416609574,default',
           headers: {
             'Content-Length': fs.statSync(fileName).size
           },
@@ -251,7 +251,8 @@ function analyzeImage(args, fileName, analyzeCallback) {
           if (err) {
             console.log('Image Keywords', err);
           } else if (body.images && body.images.length > 0) {
-            analysis.image_keywords = body.images[0].classifiers[0].classes;
+        	 analysis.image_keywords = body.images[0].classifiers[0].classes;
+        	 analysis.image_keywords.push(body.images[0].classifiers[1].classes);
           }
           callback(null);
         }));
