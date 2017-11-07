@@ -205,6 +205,9 @@ function analyzeImage(args, fileName, analyzeCallback) {
         callback(null);
       });
     },
+    
+    
+    //kkkkk
     (callback) => {
       // Call Face Detection passing the image in the request
       // http://www.ibm.com/watson/developercloud/visual-recognition/api/v3/?curl#detect_faces
