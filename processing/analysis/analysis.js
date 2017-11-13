@@ -241,8 +241,8 @@ function analyzeImage(args, fileName, analyzeCallback) {
         request({
           method: 'POST',
           url: 'https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify' + // eslint-disable-line
-            '?api_key=e1994a9bc6583ad86928c17da81d449b42025ade'+
-            '&version=2016-05-20' + '&classifier_ids=default,MediaScene_587901391',
+            '?api_key=ed251845ca53bbb328e54dff20c242d84ea76783'+
+            '&version=2016-05-20' + '&classifier_ids=Brandname_1179632837,Size_1588470021',
           headers: {
             'Content-Length': fs.statSync(fileName).size
           },
