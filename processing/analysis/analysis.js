@@ -253,6 +253,7 @@ function analyzeImage(args, fileName, analyzeCallback) {
           } else if (body.images && body.images.length > 0) {
 		//	body.images[0].classifiers[0].classes.concat(body.images[0].classifiers[1].classes);
         	 analysis.image_keywords = body.images[0].classifiers[0].classes;
+        	 analysis.image_size = body.images[0].classifiers[1].classes; 
           }
           callback(null);
         }));
