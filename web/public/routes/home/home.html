@@ -90,13 +90,15 @@
               <h4>Image Keywords</h4>
               <span class="no-tag" ng-if="!image.analysis.image_keywords">No data yet</span>
               <span class="no-tag" ng-if="image.analysis.image_keywords.length == 0">No tag detected</span>
-              <span class="no-tag" ng-if="!image.analysis.image_size">No data yet</span>
-              <span class="no-tag" ng-if="image.analysis.image_size.length == 0">No tag detected</span>
 
               <ul class="entry-taglist">
                 <li ng-repeat="keyword in image.analysis.image_keywords" class="entry-tag"><span
                   class="tag tag-keyword">{{keyword.class}} {{keyword.score | formatPercent}}%</span></li>
               </ul>
+              
+              <span class="no-tag" ng-if="!image.analysis.image_size">No size data yet</span>
+              <span class="no-tag" ng-if="image.analysis.image_size.length == 0">No size detected</span>
+
               <ul class="entry-taglist">
                 <li ng-repeat="image_size in image.analysis.image_size" class="entry-tag"><span
                   class="tag tag-keyword">{{image_size.class}} {{image_size.score | formatPercent}}%</span></li>
