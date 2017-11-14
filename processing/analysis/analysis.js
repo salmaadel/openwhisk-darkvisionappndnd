@@ -254,12 +254,17 @@ function analyzeImage(args, fileName, analyzeCallback) {
 		//	body.images[0].classifiers[0].classes.concat(body.images[0].classifiers[1].classes);
         	 analysis.image_keywords = body.images[0].classifiers[0].classes;
         	 analysis.image_size = body.images[0].classifiers[1].classes; 
+        	 if (analysis.image_keywords === null || typeof analysis.image_keywords === 'undefined') {
+        	 	
+        	 }  else {
              request.post('https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/fe715492edd1fbe19108b39de1d7e7e3fa3caab042953c90317512d27be38f16/r3COHb/Tags',
-      			{json : {'tag' : 'hello' , 'size' : 'xyz'}	},
+      			{json : {'tag' : JSON.stringify(analysis.image_keywords) , 'size' : JSON.stringify(analysis.image_size)}	},
       				function(error, response, body) {      					
       					//console.log(body)
       				}
       			);
+  			}
+
         	 
           }
           callback(null);
