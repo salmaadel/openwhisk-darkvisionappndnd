@@ -179,6 +179,7 @@
                 <table class="status-table">
                   <tr>
                     <td class="status-title-cell entry-overview-title-cell"><span class="status-title entry-overview-counter-title">Keywords</span></td>
+                     <td class="status-title-cell entry-overview-title-cell"><span class="status-title entry-overview-counter-title">Sizes</span></td>
                   </tr>
                   <tr>
                     <td class="status-value-cell entry-overview-value-cell">
@@ -186,6 +187,13 @@
                       <div ng-if="controller.data.selectedSummary.image_keywords.length>0">
                         <span class="status-value entry-overview-counter-value">{{controller.data.selectedSummary.image_keywords.length}}</span>
                       </div>
+                      
+                      <span class="status-value entry-overview-counter-value" ng-if="!controller.data.selectedSummary.image_size.length">None</span>
+                      <div ng-if="controller.data.selectedSummary.image_size.length>0">
+                        <span class="status-value entry-overview-counter-value">{{controller.data.selectedSummary.image_size.length}}</span>
+                      </div>
+                      
+                      
                     </td>
                   </tr>
                 </table>
