@@ -222,10 +222,9 @@
                         ng-class="{ 'hidden-tag': $index > 15 && !controller.showMoreKeywords, 'tag-clickable': controller.isVideo() }"
                         class="tag tag-keyword">{{keyword.class}} {{keyword.score | formatPercent}}%</span></li>
                         
-                         <li ng-repeat="Size in controller.data.selectedSummary.image_size" class="entry-tag"><span
-                        ng-click="controller.selectImageWithTag('image_size', size.class)"
+                        <span  ng-click="controller.selectImageWithTag('image_size', size.class)"
                         ng-class="{ 'hidden-tag': $index > 15 && !controller.showMoreKeywords, 'tag-clickable': controller.isVideo() }"
-                        class="tag tag-size">{{size.class}} {{size.score | formatPercent}}%</span></li>
+                        class="tag tag-size">{{size.class}} {{size.score | formatPercent}}%</span></li>   
                         
                 <li ng-if="controller.data.selectedSummary.image_keywords.length > 15"
                     class="entry-tag more-tag-toggle"
