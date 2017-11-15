@@ -1,3 +1,4 @@
+
 <!--
 // Licensed under the Apache License. See footer for details.
 -->
@@ -223,6 +224,18 @@
                     ng-click="controller.showMoreKeywords = !controller.showMoreKeywords"><span
                       ng-if="!controller.showMoreKeywords">and {{controller.data.selectedSummary.image_keywords.length - 15}} more...</span><span ng-if="controller.showMoreKeywords">show less</span></li>
               </ul>
+            
+               <ul class="entry-taglist">
+                <li ng-repeat="Size in controller.data.selectedSummary.image_size" class="entry-tag"><span
+                        ng-click="controller.selectImageWithTag('image_size', size.class)"
+                        ng-class="{ 'hidden-tag': $index > 15 && !controller.showMoreSize, 'tag-clickable': controller.isVideo() }"
+                        class="tag tag-size">{{size.class}} {{size.score | formatPercent}}%</span></li>
+                <li ng-if="controller.data.selectedSummary.image_size.length > 15"
+                    class="entry-tag more-tag-toggle"
+                    ng-click="controller.showMoreSize = !controller.showMoreSize"><span
+                      ng-if="!controller.showMoreSize">and {{controller.data.selectedSummary.image_size.length - 15}} more...</span><span ng-if="controller.showMoreSize">show less</span></li>
+              </ul>
+             
             </div>
 
             <div ng-if="controller.isVideo() && controller.data.summary.audio.analysis.nlu.keywords">
