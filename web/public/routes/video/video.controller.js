@@ -20,6 +20,7 @@
     controller.showMoreKeywords = false;
     controller.showMoreEntities = false;
     controller.showMoreConcepts = false;
+    controller.showMoreSizes = false;
 
     controller.data = {
       video: null,
@@ -27,6 +28,7 @@
       summary: null,
       selected: null,
       selectedSummary: null,
+      size: null,
     };
     controller.data.videoId = $stateParams.videoId;
 
@@ -50,6 +52,14 @@
       controller.data.selected = image;
       controller.data.selectedSummary = image.analysis;
     };
+    
+    
+    
+    controller.selectImage = function(size) {
+      console.log('Selecting size', size);
+      controller.data.selected = size;
+      controller.data.selectedSummary = size.analysis;
+    };
 
     controller.selectImageWithTag = function(tagType, tagName) {
       if (!controller.isVideo()) {
@@ -69,6 +79,13 @@
               return image.analysis.image_keywords.find(function(keyword) {
                 return keyword.class === tagName;
               });
+              
+              
+            case 'image_size':
+              return image.analysis.image_size.find(function(size) {
+                return size.class === tagName;
+              });
+              
           }
         }
         return false;
