@@ -64,14 +64,7 @@
                 return face.identity && face.identity.name === tagName;
               });
               
-              
-              case 'image_size':
-              return image.analysis.image_size.find(function(size) {
-                return size.class === tagName;
-              });
-              
-              
-              
+            
             case 'image_keywords':
               return image.analysis.image_keywords.find(function(keyword) {
                 return keyword.class === tagName;
